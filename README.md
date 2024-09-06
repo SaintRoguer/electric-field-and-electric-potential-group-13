@@ -1,1 +1,1 @@
-# electric-field---electric-potential-group-13
+# electric-field-and-electric-potential-group-13
