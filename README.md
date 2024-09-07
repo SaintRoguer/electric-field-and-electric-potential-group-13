@@ -10,6 +10,7 @@ Run the following commands
 - .\venv\Scripts\activate
 - Linux\Mac:
 - source venv/bin/activate
+- npm install to install dependencies from requirements
 
 
 # Run the script
