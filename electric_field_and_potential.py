@@ -24,6 +24,11 @@ charges = [get_charge_input(i+1) for i in range(charges_amount)]
 #    [1e-9, -1.0, 1.0]   # Charge 3: 1nC at (-1, 1)
 #]
 
+# para recta con carga uniforme
+#charges = []
+#for i in range(400):
+#    charges.append([1e-9, -200 + i, 0])
+
 # Define the grid for the field
 x = np.linspace(-10, 10, 100)
 y = np.linspace(-10, 10, 100)
