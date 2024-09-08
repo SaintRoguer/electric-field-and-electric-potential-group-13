@@ -52,7 +52,11 @@ for charge in charges:
     V += k * q / r
 
 # Create a figure with two subplots
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))
+fig1, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))
+fig2, ax3 = plt.subplots(1, 1, figsize=(6, 6))
+
+ax3.contour(X, Y, V, levels=350, cmap='RdYlBu')
+ax3.streamplot(X, Y, Ex, Ey, color='b', linewidth=1, density=1.5)
 
 # Plot electric field lines in the first subplot
 ax1.streamplot(X, Y, Ex, Ey, color='b', linewidth=1, density=1.5)
@@ -60,6 +64,7 @@ ax1.streamplot(X, Y, Ex, Ey, color='b', linewidth=1, density=1.5)
 for charge in charges:
     color = 'red' if charge[0] > 0 else 'blue'  # Red for positive, Blue for negative
     ax1.scatter(charge[1], charge[2], color=color, s=50, marker='o')
+    ax3.scatter(charge[1], charge[2], color=color, s=50, marker='o')
 ax1.set_title('Electric Field Lines')
 ax1.set_xlabel('x')
 ax1.set_ylabel('y')
@@ -71,11 +76,18 @@ contour = ax2.contour(X, Y, V, levels=350, cmap='RdYlBu')
 for charge in charges:
     color = 'red' if charge[0] > 0 else 'blue'  # Red for positive, Blue for negative
     ax2.scatter(charge[1], charge[2], color=color, s=50, marker='o')
+    ax3.scatter(charge[1], charge[2], color=color, s=50, marker='o')
 ax2.set_title('Equipotential Lines')
 ax2.set_xlabel('x')
 ax2.set_ylabel('y')
 ax2.axis('equal')
-fig.colorbar(contour, ax=ax2, orientation='vertical')
+fig1.colorbar(contour, ax=ax2, orientation='vertical')
+
+ax3.set_title('Electric Field and Equipotential Lines')
+ax3.set_xlabel('x')
+ax3.set_ylabel('y')
+ax3.axis('equal')
+fig2.colorbar(contour, ax=ax3, orientation='vertical')
 
 # Display the plots
 plt.tight_layout()
