@@ -1,20 +1,20 @@
 # electric-field-and-electric-potential-group-13
 
-# How to sart
+# How to Start
 
-Run the following commands
-- Install Python 3.12.5
-- python -m venv venv
-- If using Windows:
-- Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-- .\venv\Scripts\activate
-- Linux\Mac:
-- source venv/bin/activate
-- npm install to install dependencies from requirements
+To get started, follow these steps:
 
+1. Install Python 3.12.5
+2. Create a virtual environment for Python by running the command `python -m venv venv`
+    - If you are using Windows, execute the following commands:
+      - Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+      - .\venv\Scripts\activate
+    - If you are using Linux or Mac, run `source venv/bin/activate`
+3. Install the required dependencies by running `npm install`
 
-# Run the script
+# Running the Script
 
-- python electric_field_and_potential.py
+To run the script, execute the command `python electric_field_and_potential.py`
+
 
 
