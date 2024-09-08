@@ -60,37 +60,37 @@ for charge in charges:
 fig1, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))
 fig2, ax3 = plt.subplots(1, 1, figsize=(6, 6))
 
-ax3.contour(X, Y, V, levels=350, cmap='RdYlBu')
-ax3.streamplot(X, Y, Ex, Ey, color='b', linewidth=1, density=1.5)
+ax3.contour(X, Y, V, levels=350, cmap='coolwarm')
+ax3.streamplot(X, Y, Ex, Ey, color='dimgray', linewidth=1, density=1.5)
 
 # Plot electric field lines in the first subplot
-ax1.streamplot(X, Y, Ex, Ey, color='b', linewidth=1, density=1.5)
+ax1.streamplot(X, Y, Ex, Ey, color='dimgray', linewidth=1, density=1.5)
 # Plot charges with color based on their sign
 for charge in charges:
     color = 'red' if charge[0] > 0 else 'blue'  # Red for positive, Blue for negative
     ax1.scatter(charge[1], charge[2], color=color, s=50, marker='o')
     ax3.scatter(charge[1], charge[2], color=color, s=50, marker='o')
 ax1.set_title('Electric Field Lines')
-ax1.set_xlabel('x')
-ax1.set_ylabel('y')
+ax1.set_xlabel('x [m]')
+ax1.set_ylabel('y [m]')
 ax1.axis('equal')
 
 # Plot equipotential lines in the second subplot
-contour = ax2.contour(X, Y, V, levels=350, cmap='RdYlBu')
+contour = ax2.contour(X, Y, V, levels=350, cmap='coolwarm')
 # Plot charges with color based on their sign
 for charge in charges:
     color = 'red' if charge[0] > 0 else 'blue'  # Red for positive, Blue for negative
     ax2.scatter(charge[1], charge[2], color=color, s=50, marker='o')
     ax3.scatter(charge[1], charge[2], color=color, s=50, marker='o')
 ax2.set_title('Equipotential Lines')
-ax2.set_xlabel('x')
-ax2.set_ylabel('y')
+ax2.set_xlabel('x [m]')
+ax2.set_ylabel('y [m]')
 ax2.axis('equal')
 fig1.colorbar(contour, ax=ax2, orientation='vertical')
 
 ax3.set_title('Electric Field and Equipotential Lines')
-ax3.set_xlabel('x')
-ax3.set_ylabel('y')
+ax3.set_xlabel('x [m]')
+ax3.set_ylabel('y [m]')
 ax3.axis('equal')
 fig2.colorbar(contour, ax=ax3, orientation='vertical')
 
