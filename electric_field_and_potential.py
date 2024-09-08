@@ -12,8 +12,10 @@ def get_charge_input(charge_number):
     yq = float(input("  Y-position of charge: "))
     return [q, xq, yq]
 
+charges_amount = int(input("number of charges: "))
+
 # Ask for user input for three charges
-charges = [get_charge_input(i+1) for i in range(3)]
+charges = [get_charge_input(i+1) for i in range(charges_amount)]
 
 # Defined charges for testing
 #charges = [
@@ -23,8 +25,8 @@ charges = [get_charge_input(i+1) for i in range(3)]
 #]
 
 # Define the grid for the field
-x = np.linspace(-5, 5, 100)
-y = np.linspace(-5, 5, 100)
+x = np.linspace(-10, 10, 100)
+y = np.linspace(-10, 10, 100)
 X, Y = np.meshgrid(x, y)
 
 # Initialize electric field and potential arrays
