@@ -35,7 +35,7 @@ V = numpy.zeros(X.shape)
 for charge in charges:
     q, xq, yq = charge
 
-    # Distance components
+    # Componentes de la distancia
     dx = X - xq
     dy = Y - yq
     r = numpy.sqrt(dx**2 + dy**2)
