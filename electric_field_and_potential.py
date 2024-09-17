@@ -17,6 +17,10 @@ def get_charge_input(charge_number):
 charges_amount = int(input("number of charges: "))
 charges = [get_charge_input(i+1) for i in range(charges_amount)]
 
+# Solicita al usuario el punto donde calcular el campo electrico y potencial
+point_x = float(input("Enter the X-coordinate of the point: "))
+point_y = float(input("Enter the Y-coordinate of the point: "))
+
 # Para recta con carga uniforme
 #charges = []
 #for i in range(400):
@@ -32,6 +36,7 @@ Ex, Ey = numpy.zeros(X.shape), numpy.zeros(Y.shape)
 V = numpy.zeros(X.shape)
 
 # Calculo del campo electrico y potencial para cada carga
+field_ex, field_ey, potential = 0, 0, 0  # Variables para almacenar los valores en el punto
 for charge in charges:
     q, xq, yq = charge
 
@@ -49,6 +54,21 @@ for charge in charges:
     
     # Potencial electrico
     V += k * q / r
+
+    # Calculo en el punto dado por el usuario
+    dx_point = point_x - xq
+    dy_point = point_y - yq
+    r_point = numpy.sqrt(dx_point**2 + dy_point**2)
+
+    # Para evitar division por 0 en el punto
+    if r_point != 0:
+        field_ex += k * q * dx_point / r_point**3
+        field_ey += k * q * dy_point / r_point**3
+        potential += k * q / r_point
+
+# Muestra el campo eléctrico y el potencial en el punto ingresado
+print(f"Electric field at point ({point_x}, {point_y}): Ex = {field_ex:.2e} N/C, Ey = {field_ey:.2e} N/C")
+print(f"Electric potential at point ({point_x}, {point_y}): V = {potential:.2e} V")
 
 # Crea dos figuras, una con dos sub-graficos y otra con uno solo
 fig1, (ax1, ax2) = matplotlib.subplots(1, 2, figsize=(12, 6))
