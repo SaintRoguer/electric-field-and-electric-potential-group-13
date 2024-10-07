@@ -16,5 +16,10 @@ To get started, follow these steps:
 
 To run the script, execute the command `python electric_field_and_potential.py`
 
+# Report
+
+In the following link you can find a [Report](https://docs.google.com/document/d/11X3frjLiYTR9TTV8FFuKCDcfLBSwXtxrC7jkT4f6SkE/edit?usp=sharing) in spanish 
+
+
 
 
